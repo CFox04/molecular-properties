@@ -1,0 +1,65 @@
+html {
+    width: 100%;
+}
+
+body {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 60%;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+form input[type="text"] {
+    width: 100%;
+}
+
+form input[type="submit"] {
+    margin-left: 0.5em;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.molecule-wrapper {
+    margin-top: 1em;
+    padding: 1em; 
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.molecule-properties {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.molecule-properties span {
+    font-weight: 500;
+}
+
+#title {
+    margin-bottom: 1em;
+}
+
+#error-message {
+    color: #e74c3c;
+}
+
+#molecule-svg {
+    overflow: hidden;
+}
