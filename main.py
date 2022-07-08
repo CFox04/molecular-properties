@@ -3,7 +3,6 @@ from rdkit.Chem import MolFromSmiles, Descriptors, Draw
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -16,9 +15,8 @@ def smiles():
     if molecule is None:
         return abort(400)
 
-    svg = Draw.MolsToGridImage([molecule], useSVG=True)
     return {
-        'svg': svg,
+        'svg': Draw.MolsToGridImage([molecule], useSVG=True),
         'molProperties': {
             'Number of Radical Electrons': Descriptors.NumValenceElectrons(molecule),
             'Number of Valence Electrons': Descriptors.NumValenceElectrons(molecule),
