@@ -43,15 +43,33 @@ body {
     border-radius: 10px;
 }
 
-.options-wrapper label {
-    font-size: 0.8em;
+.options-wrapper form {
+    display: flex;
+    flex-direction: column;
 }
 
-.options-wrapper input[type="number"] {
-    /* width: 30%; */
-    font-size: 0.9em;
+.options-wrapper label {
+    font-size: 0.7em;
+    width: 60%;
+}
+
+.options-wrapper input {
+    font-size: 0.8em;
     width: 3em;
-    float: right;
+}
+
+.options-wrapper input[type="checkbox"] {
+    position: absolute;
+    right: 0;
+}
+
+.option-item {
+    position: relative;
+    width: 100%;
+    margin: 0.3em 0 0.3em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #smiles-form {
@@ -97,6 +115,12 @@ body {
     #smiles-form input[type="submit"] {
         width: 100%;
         margin: 0.5em 0 0 0;
+    }
+    .options-wrapper {
+        width: 40%;
+    }
+    .search-wrapper {
+        width: 60%;
     }
 }
 

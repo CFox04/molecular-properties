@@ -7,12 +7,12 @@ export function displayClientError(err) {
 
 export function displayServerError(err) {
     if (err.status == 400) {
-        errorMessage.innerHTML = 'Invalid SMILES Input!'
+        errorMessage.innerHTML = 'Invalid SMILES Input!';
     } else {
         errorMessage.innerHTML = `<b>Unexpected Server Error</b> (${err.status}): ${err.statusText}`;
     }
 }
 
 export function clearErrorMessage() {
-    errorMessage.innerHTML = ''
+    errorMessage.innerHTML = '';
 }

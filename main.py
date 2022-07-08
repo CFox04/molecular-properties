@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, abort
-from rdkit.Chem import MolFromSmiles, Descriptors, Draw
+from smiles import get_molecule_data_from_smiles, MOLECULE_PROPERTIES
 
 app = Flask(__name__)
 
@@ -7,24 +7,15 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/mol-properties', methods=['GET'])
+def mol_properties():
+    return {'properties': list(MOLECULE_PROPERTIES.keys())}, 200
+
 @app.route('/smiles', methods=['POST'])
 def smiles():
-    smiles_str = request.form.get("smiles")
-    molecule = MolFromSmiles(smiles_str)
+    data = get_molecule_data_from_smiles(request.json.get('smiles'), request.json.get('options'))
 
-    if molecule is None:
+    if data is None:
         return abort(400)
-
-    return {
-        'svg': Draw.MolsToGridImage([molecule], useSVG=True),
-        'molProperties': {
-            'Number of Radical Electrons': Descriptors.NumValenceElectrons(molecule),
-            'Number of Valence Electrons': Descriptors.NumValenceElectrons(molecule),
-            'Average Molecular Weight': Descriptors.MolWt(molecule),
-            'Average Molecular Weight (ignoring Hydrogens)': Descriptors.HeavyAtomMolWt(molecule),
-            'Exact Molecular Weight': Descriptors.ExactMolWt(molecule),
-            'LogP': Descriptors.MolLogP(molecule),
-            'SMILES': smiles_str
-        }
-    }, 200
-
+    
+    return data

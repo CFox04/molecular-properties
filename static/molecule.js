@@ -1,15 +1,10 @@
 const moleculeWrapper = document.querySelector('.molecule-wrapper');
 const moleculeProperties = document.querySelector('.molecule-properties');
 const moleculeSVG = document.getElementById('molecule-svg');
-const precisionInput = document.getElementById('float-precision');
 
 function addMolecularPropertyElement(name, value) {
     let element = document.createElement('span');
     element.class = 'molecular-property';
-
-    if (typeof value == "number" && !Number.isInteger(value)) {
-        value = value.toFixed(precisionInput.value);
-    }
 
     element.innerHTML = `<small>${name}</small> ${value}`;
     moleculeProperties.append(element);
@@ -30,6 +25,8 @@ export function displayMoleculeCard(moleculeData) {
     showMoleculeWrapper();
 
     moleculeSVG.innerHTML = moleculeData.svg;
+
+    addMolecularPropertyElement(moleculeData.SMILES);
 
     moleculeProperties.innerHTML = '';
     for (const [propName, value] of Object.entries(moleculeData.molProperties)) {
