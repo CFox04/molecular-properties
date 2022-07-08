@@ -10,19 +10,6 @@ body {
     align-items: center;
 }
 
-
-@media screen and (max-width: 600px) {
-    main {
-        width: 100%;
-    }
-}
-
-@media screen and (min-width: 600px) {
-    main {
-        width: 60%;
-    }
-}
-
 form {
     width: 100%;
     display: flex;
@@ -37,6 +24,21 @@ form input[type="text"] {
 
 form input[type="submit"] {
     margin-left: 0.5em;
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        width: 100%;
+    }
+    h3 {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    main {
+        width: 60%;
+    }
 }
 
 .hidden {
