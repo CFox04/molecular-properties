@@ -12,20 +12,29 @@
     <script src="static/app.js" type="module" defer></script>
 </head>
 <body>
-    <main>
-        <h3 id="title">Get Molecular Properties From SMILES</h3>
-        <div class="form-wrapper">
-            <form id="smiles-form">
-                <input type="text" placeholder="Enter SMILES" value="OCCc1c(C)[n+](cs1)Cc2cnc(C)nc2N" name="smiles">
-                <input type="submit"value="Submit">
-            </form>
-            <small id="error-message"></small>
-        </div>
-        <div class="hidden molecule-wrapper">
-            <h4>Results</h4>
-            <div id="molecule-svg"></div>
-            <div class="molecule-properties">
+    <h3 id="title">Get Molecular Properties From SMILES</h3>
+    <main id="content">
+        <div class="search-wrapper">
+            <div class="form-wrapper">
+                <form id="smiles-form">
+                    <input type="text" placeholder="Enter SMILES" value="OCCc1c(C)[n+](cs1)Cc2cnc(C)nc2N" name="smiles">
+                    <input type="submit"value="Submit">
+                </form>
+                <small id="error-message"></small>
             </div>
+            <div class="hidden molecule-wrapper">
+                <h4>Results</h4>
+                <div id="molecule-svg"></div>
+                <div class="molecule-properties">
+                </div>
+            </div>
+        </div>
+        <div class="options-wrapper">
+            <h5>Options</h5>
+            <form id="search-options">
+                <label for="float-precision">Precision</label>
+                <input type="number" name="float-precision" id="float-precision" value="6">
+            </form>
         </div>
     </main>
 </body>

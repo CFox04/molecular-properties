@@ -1,15 +1,14 @@
 const moleculeWrapper = document.querySelector('.molecule-wrapper');
 const moleculeProperties = document.querySelector('.molecule-properties');
 const moleculeSVG = document.getElementById('molecule-svg');
-
-const FLOAT_PRECISION = 6;
+const precisionInput = document.getElementById('float-precision');
 
 function addMolecularPropertyElement(name, value) {
     let element = document.createElement('span');
     element.class = 'molecular-property';
 
     if (typeof value == "number" && !Number.isInteger(value)) {
-        value = value.toFixed(FLOAT_PRECISION);
+        value = value.toFixed(precisionInput.value);
     }
 
     element.innerHTML = `<small>${name}</small> ${value}`;
