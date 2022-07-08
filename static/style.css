@@ -3,15 +3,24 @@ html {
 }
 
 body {
-    padding: 1em;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-main {
-    width: 60%;
+
+@media screen and (max-width: 600px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    main {
+        width: 60%;
+    }
 }
 
 form {
