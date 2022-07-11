@@ -25,10 +25,10 @@ export function displayMoleculeCard(moleculeData) {
     showMoleculeWrapper();
 
     moleculeSVG.innerHTML = moleculeData.svg;
-
-    addMolecularPropertyElement(moleculeData.SMILES);
-
     moleculeProperties.innerHTML = '';
+
+    addMolecularPropertyElement('SMILES', moleculeData.SMILES);
+
     for (const [propName, value] of Object.entries(moleculeData.molProperties)) {
         addMolecularPropertyElement(propName, value);
     }
