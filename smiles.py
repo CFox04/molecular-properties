@@ -16,7 +16,7 @@ def get_molecule_data_from_smiles(smiles_str, options):
         return None
 
     return {
-        'svg': Draw.MolsToGridImage([molecule], useSVG=True),
+        'svg': Draw.MolsToGridImage([molecule], useSVG=True, molsPerRow=1),
         'SMILES': smiles_str,
         'molProperties': {
             key:round(value(molecule), int(options['precision'])) for (key, value) in MOLECULE_PROPERTIES.items() if key in options['properties']

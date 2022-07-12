@@ -13,13 +13,19 @@
     <script src="static/app.js" type="module" defer></script>
 </head>
 <body>
-    <h3 id="title">Get Molecular Properties From SMILES</h3>
+    <!-- <h3 id="title">Get Molecular Properties From SMILES</h3> -->
     <main id="content">
         <div class="search-wrapper">
             <div class="form-wrapper">
-                <form id="smiles-form">
+                <form id="single-smiles-form" class="smiles-form">
+                    <label for="smiles">Get Molecular Properties From SMILES</label>
                     <input type="text" id="smiles-input" placeholder="Enter SMILES" value="OCCc1c(C)[n+](cs1)Cc2cnc(C)nc2N" name="smiles">
-                    <input type="submit"value="Submit">
+                    <input title="Get properties of molecule from SMILES string." type="submit"value="Submit">
+                </form>
+                <form id="multi-smiles-form" class="smiles-form">
+                    <label for="smiles">Get Molecular Properties From Multiple SMILES Strings</label>
+                    <textarea name="smiles" id="multi-smiles" cols="30" rows="5" placeholder="Enter multiple SMILES strings as a comma separated list and generate a .csv file."></textarea>
+                    <input title="Generate a CSV file containing molecular propertie from multiple SMILES strings" type="submit" value="Generate CSV">
                 </form>
                 <small id="error-message"></small>
             </div>

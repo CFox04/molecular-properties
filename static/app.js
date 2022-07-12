@@ -2,7 +2,7 @@ import { getOptions } from '/static/options.js';
 import { hideMoleculeWrapper, displayMoleculeCard } from "./molecule.js";
 import { clearErrorMessage, displayClientError, displayServerError } from "./error.js";
 
-const form = document.getElementById('smiles-form')
+const form = document.getElementById('single-smiles-form')
 const smilesInput = document.getElementById('smiles-input')
 
 function resetElements() {
