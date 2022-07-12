@@ -1,11 +1,11 @@
 const errorMessage = document.getElementById('error-message');
 
-export function displayClientError(err) {
+function displayClientError(err) {
     errorMessage.innerHTML = `<b>Unexpected Client Error</b> ${err}`;
     throw err;
 }
 
-export function displayServerError(err) {
+function displayServerError(err) {
     if (err.status == 400) {
         errorMessage.innerHTML = 'Invalid SMILES Input!';
     } else {
@@ -15,4 +15,12 @@ export function displayServerError(err) {
 
 export function clearErrorMessage() {
     errorMessage.innerHTML = '';
+}
+
+export function displayError(err) {
+    if (err instanceof Response) { 
+        displayServerError(err) 
+    } else {
+        displayClientError(err)
+    } 
 }

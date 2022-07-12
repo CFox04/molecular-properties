@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="static/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="static/error.js" type="module"></script>
-    <script src="static/molecule.js" type="module"></script>
+    <script src="static/molecule-card.js" type="module"></script>
     <script src="static/options.js" type="module" defer></script>
-    <script src="static/app.js" type="module" defer></script>
+    <script src="static/single-smiles.js" type="module" defer></script>
+    <script src="static/smiles-csv.js" type="module" defer></script>
 </head>
 <body>
     <!-- <h3 id="title">Get Molecular Properties From SMILES</h3> -->
@@ -19,14 +20,16 @@
             <div class="form-wrapper">
                 <form id="single-smiles-form" class="smiles-form">
                     <label for="smiles">Get Molecular Properties From SMILES</label>
-                    <input type="text" id="smiles-input" placeholder="Enter SMILES" value="OCCc1c(C)[n+](cs1)Cc2cnc(C)nc2N" name="smiles">
-                    <input title="Get properties of molecule from SMILES string." type="submit"value="Submit">
+                    <input type="text" id="smiles-input" placeholder="Enter SMILES" value="OCCc1c(C)[n+](cs1)Cc2cnc(C)nc2N">
+                    <input title="Get properties of molecule from SMILES string." type="submit"value="Get Properties">
                 </form>
                 <form id="multi-smiles-form" class="smiles-form">
                     <label for="smiles">Get Molecular Properties From Multiple SMILES Strings</label>
-                    <textarea name="smiles" id="multi-smiles" cols="30" rows="5" placeholder="Enter multiple SMILES strings as a comma separated list and generate a .csv file."></textarea>
-                    <input title="Generate a CSV file containing molecular propertie from multiple SMILES strings" type="submit" value="Generate CSV">
+                    <textarea id="multi-smiles" cols="30" rows="5" placeholder="Enter multiple SMILES strings as a comma separated list and generate a .csv file."></textarea>
+                    <input title="Generate a CSV file containing molecular properties from multiple SMILES strings" type="submit" value="Generate CSV">
                 </form>
+            </div>
+            <div class="error-wrapper">
                 <small id="error-message"></small>
             </div>
             <div class="hidden molecule-wrapper">

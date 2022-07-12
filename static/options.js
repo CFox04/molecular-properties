@@ -1,4 +1,4 @@
-import { displayClientError, displayServerError } from "./error.js";
+import { displayError } from "./error.js";
 
 const optionsForm = document.getElementById('search-options');
 
@@ -45,4 +45,4 @@ fetch('/mol-properties', {
 })
 .then((response) => (response.ok ? response.json() : Promise.reject(response)))
 .then((data) => displayMoleculePropertyOptions(data))
-.catch((err) => (err instanceof Response ? displayServerError(err) : displayClientError(err)))
+.catch((err) => (displayError(err)))

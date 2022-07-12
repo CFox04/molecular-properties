@@ -90,15 +90,12 @@ body {
     margin-top: 0.5em;
 }
 
-#content {
-    display: flex;
-    flex-direction: row;
-}
-
-#title {
+.error-wrapper {
+    color: #e74c3c;
     margin-bottom: 1em;
 }
 
-#error-message {
-    color: #e74c3c;
+#content {
+    display: flex;
+    flex-direction: row;
 }

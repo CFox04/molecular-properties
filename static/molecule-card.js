@@ -23,7 +23,6 @@ export function hideMoleculeWrapper() {
 
 export function displayMoleculeCard(moleculeData) {
     showMoleculeWrapper();
-
     moleculeSVG.innerHTML = moleculeData.svg;
     moleculeProperties.innerHTML = '';
 
