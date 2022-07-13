@@ -35,11 +35,15 @@
                         <div class="input-group">
                             <input class="form-control" type="text" id="smiles-input" placeholder="Enter SMILES" value="OCCc1c(C)[n+](cs1)Cc2cnc(C)nc2N">
                         </div>
-                        <input class="btn btn-default" title="Get properties of molecule from SMILES string." type="submit" value="Get Properties">
+                        <button class="btn btn-default" title="Get properties of molecule from SMILES string." type="submit">
+                            Get Properties
+                        </button>
                     </form>
                     <form id="multi-smiles-form" class="smiles-form">
                         <textarea class="form-control" id="multi-smiles" cols="30" rows="5" placeholder="Enter multiple SMILES strings as a comma separated list and generate a .csv file."></textarea>
-                        <input class="btn btn-default" title="Generate a CSV file containing molecular properties from multiple SMILES strings" type="submit" value="Generate CSV">
+                        <button class="btn btn-default" title="Generate a CSV file containing molecular properties from multiple SMILES strings" type="submit">
+                            <i class="ni ni-cloud-download-95"></i>Generate CSV
+                        </button>
                     </form>
                 </div>
                 <div class="error-wrapper">
