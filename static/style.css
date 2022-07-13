@@ -12,8 +12,8 @@ body {
 
 .molecule-wrapper {
     padding: 1em; 
-    border: 1px solid black;
-    border-radius: 10px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.167);
+    border-radius: 5px;
 }
 
 .molecule-properties {
@@ -28,43 +28,43 @@ body {
 
 .search-wrapper {
     width: 70%;
-    padding: 0 1em 0 1em;
 }
 
 .options-wrapper {
-    padding: 0.3em;
+    margin-left: 1em;
+    padding: 1em;
     width: 30%;
-    border: 1px solid black;
-    border-radius: 10px;
+    background-color: var(--secondary);
+    border-radius: 5px;
 }
 
-.options-wrapper form {
-    display: flex;
-    flex-direction: column;
+.options-wrapper i {
+    float: right;
 }
 
-.options-wrapper label {
-    font-size: 0.7em;
-    width: 60%;
+.options-header-wrapper h5 {
+    margin-bottom: 0;
+    margin-left: 0.2em;
 }
 
-.options-wrapper input {
-    font-size: 0.8em;
-    width: 3em;
-}
-
-.options-wrapper input[type="checkbox"] {
-    position: absolute;
-    right: 0;
+.options-wrapper small {
+    margin-bottom: 0.3em;
 }
 
 .option-item {
-    position: relative;
     width: 100%;
-    margin: 0.3em 0 0.3em 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+}
+
+.option-item label {
+    font-size: small;
+}
+
+.option-item input[type="number"] {
+    width: 4em;
+    margin-bottom: 1em;
 }
 
 .smiles-form {
@@ -75,12 +75,7 @@ body {
     margin-bottom: 1em;
 }
 
-.smiles-form input[type="text"] {
-    width: 100%;
-}
-
 .smiles-form textarea {
-    width: 100%;
     font-size: 0.8em;
 }
 
@@ -96,6 +91,35 @@ body {
 }
 
 #content {
+    overflow: visible;
+}
+
+#forms-wrapper {
     display: flex;
     flex-direction: row;
 }
+
+#title {
+    margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 900px) {
+    #content {
+        width: 70%;
+    }
+    .search-wrapper {
+        width: 70%;
+    }
+    .options-wrapper {
+        width: 30%;
+    }
+  }
+
+@media only screen and (max-width: 900px) {
+    .search-wrapper {
+        width: 60%;
+    }
+    .options-wrapper {
+        width: 40%;
+    }
+  }

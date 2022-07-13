@@ -1,4 +1,6 @@
 const errorMessage = document.getElementById('error-message');
+const smilesInput = document.getElementById('smiles-input');
+const smilesForm = document.getElementById('single-smiles-form');
 
 function displayClientError(err) {
     errorMessage.innerHTML = `<b>Unexpected Client Error</b> ${err}`;
@@ -8,6 +10,8 @@ function displayClientError(err) {
 function displayServerError(err) {
     if (err.status == 400) {
         errorMessage.innerHTML = 'Invalid SMILES Input!';
+        smilesInput.classList.add('is-invalid');
+        smilesForm.classList.add('has-danger');
     } else {
         errorMessage.innerHTML = `<b>Unexpected Server Error</b> (${err.status}): ${err.statusText}`;
     }
@@ -15,6 +19,11 @@ function displayServerError(err) {
 
 export function clearErrorMessage() {
     errorMessage.innerHTML = '';
+
+    if (smilesForm.className.includes('has-danger')) {
+        smilesForm.classList.remove('has-danger');
+        smilesInput.classList.remove('is-invalid');
+    }
 }
 
 export function displayError(err) {

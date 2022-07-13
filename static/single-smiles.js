@@ -2,8 +2,8 @@ import { getOptions } from '/static/options.js';
 import { hideMoleculeWrapper, displayMoleculeCard } from "./molecule-card.js";
 import { clearErrorMessage, displayError } from "./error.js";
 
-const form = document.getElementById('single-smiles-form')
-const smilesInput = document.getElementById('smiles-input')
+const form = document.getElementById('single-smiles-form');
+const smilesInput = document.getElementById('smiles-input');
 
 function resetElements() {
     hideMoleculeWrapper();

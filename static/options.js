@@ -19,18 +19,22 @@ export function getOptions() {
 
 function addMoleculePropertyOption(name) {
     let wrapper = document.createElement('div');
-    wrapper.className = 'option-item'
+    wrapper.className = 'option-item custom-control custom-checkbox mb-3'
 
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.checked = true;
-    checkbox.name = name
-
+    checkbox.name = name;
+    checkbox.id = name;
+    checkbox.classList.add('custom-control-input');
+    
     let label = document.createElement('label');
-    label.innerText = name
+    label.innerText = name;
+    label.htmlFor = name;
+    label.classList.add('custom-control-label');
 
-    wrapper.append(label); 
     wrapper.append(checkbox);
+    wrapper.append(label); 
     optionsForm.append(wrapper); 
 }
 
