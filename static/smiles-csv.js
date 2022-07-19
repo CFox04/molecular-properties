@@ -17,7 +17,8 @@ form.onsubmit = (event) => {
     
     fetch('/smiles-csv', {
         method: 'POST',
-        body: JSON.stringify({'smiles': textArea.value.replace(/\s/g, '').split(','), 'options': getOptions()}),
+        // Remove whitespace, trailing/leading commas, and separate by comma into array
+        body: JSON.stringify({'smiles': textArea.value.replace(/\s/g, '').replace(/(^,)|(,$)/g, '').split(','), 'options': getOptions()}),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         }
