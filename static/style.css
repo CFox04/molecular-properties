@@ -11,6 +11,7 @@ body {
 }
 
 .molecule-wrapper {
+    grid-area: molecule;
     padding: 1em; 
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.167);
     border-radius: 5px;
@@ -27,13 +28,12 @@ body {
 }
 
 .search-wrapper {
-    width: 70%;
+    grid-area: search;
 }
 
 .options-wrapper {
-    margin-left: 1em;
+    grid-area: options;
     padding: 1em;
-    width: 30%;
     background-color: var(--secondary);
     border-radius: 5px;
 }
@@ -68,11 +68,9 @@ body {
 }
 
 .smiles-form {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 1em;
 }
 
 .smiles-form textarea {
@@ -90,40 +88,50 @@ body {
 }
 
 .error-wrapper {
+    margin-top: 1em;
     color: #e74c3c;
-    margin-bottom: 1em;
 }
 
 #content {
-    overflow: visible;
-}
-
-#forms-wrapper {
-    display: flex;
-    flex-direction: row;
+    overflow: visible;  
 }
 
 #title {
     margin-bottom: 1em;
 }
 
+#forms-wrapper {
+    display: grid;
+    grid-template-columns: 1.25fr 1.25fr 1fr;
+    grid-gap: 0.5em 0.5em;
+    grid-template-areas: 
+        "search search options"
+        "molecule molecule options"
+}
+
 @media only screen and (min-width: 900px) {
-    #content {
-        width: 70%;
-    }
-    .search-wrapper {
+    /* .search-wrapper {
         width: 70%;
     }
     .options-wrapper {
         width: 30%;
+    } */
+    #content {
+        width: 70%;
     }
   }
 
 @media only screen and (max-width: 900px) {
     .search-wrapper {
-        width: 60%;
+        width: 100%;
     }
     .options-wrapper {
-        width: 40%;
+        width: 100%;
+    }
+    #forms-wrapper {
+        grid-template-areas: 
+            "search search search"
+            "options options options"
+            "molecule molecule molecule"
     }
   }
