@@ -10,7 +10,7 @@ def home():
 
 @app.route('/mol-properties', methods=['GET'])
 def mol_properties():
-    return {'properties': list(MOLECULE_PROPERTIES.keys())}, 200
+    return {'properties': sorted(list(MOLECULE_PROPERTIES.keys()))}, 200
 
 @app.route('/smiles', methods=['POST'])
 def smiles():
