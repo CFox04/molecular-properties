@@ -28,7 +28,7 @@ export function displayMoleculeCard(moleculeData) {
 
     addMolecularPropertyElement('SMILES', moleculeData.SMILES);
 
-    for (const [propName, value] of Object.entries(moleculeData.molProperties)) {
+    for (const [propName, value] of moleculeData.molProperties) {
         addMolecularPropertyElement(propName, value);
     }
 }

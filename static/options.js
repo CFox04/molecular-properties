@@ -4,13 +4,11 @@ const optionsForm = document.getElementById('search-options');
 
 export function getOptions() {
     const optionsFormData = new FormData(optionsForm);
-    let options = {'precision': optionsForm.precision.value, 'properties': []};
+    let options = {};
 
     for (const [key, value] of optionsFormData.entries()) {
-        if (key == 'precision' || value == 'off') {
-            continue;
-        }
-        options.properties.push(key);
+        // Ticked checkboxes have a value of 'on', need to change it to true
+        options[key] = value == 'on' ? true : value
     }
 
     return options;
@@ -38,8 +36,8 @@ function addMoleculePropertyOption(name) {
     optionsForm.append(wrapper); 
 }
 
-export function displayMoleculePropertyOptions(data) {
-    for (const propName of data.properties) {
+export function displayMoleculePropertyOptions(propNames) {
+    for (const propName of propNames) {
         addMoleculePropertyOption(propName);
     }
 }
