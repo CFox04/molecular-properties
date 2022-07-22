@@ -3,16 +3,11 @@ from rdkit.Chem import MolFromSmiles, Descriptors, Draw, Crippen, Lipinski, QED
 from esol_calculator import calc_ap, calc_esol
 
 MOLECULE_PROPERTIES = OrderedDict({
-    'Number of Radical Electrons': Descriptors.NumValenceElectrons,
-    'Number of Valence Electrons': Descriptors.NumValenceElectrons,
-    'Average Molecular Weight': Descriptors.MolWt,
-    'Average Molecular Weight (ignoring hydrogens)': Descriptors.HeavyAtomMolWt,
-    'Exact Molecular Weight': Descriptors.ExactMolWt,
+    'Solubility (ESOL)': calc_esol,
     'LogP': Crippen.MolLogP,
-    'Aromatic Proportion': calc_ap,
-    'Number of Rotatable Bonds': Lipinski.NumRotatableBonds,
-    'Water Solubility (ESOL)': calc_esol,
+    'Average Molecular Weight': Descriptors.MolWt,
     'Polar Surface Area': lambda mol: QED.properties(mol).PSA,
+    'Number of Rotatable Bonds': Lipinski.NumRotatableBonds
 })
 
 def get_molecule_data_from_smiles(smiles_str, options):
