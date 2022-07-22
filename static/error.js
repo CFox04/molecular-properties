@@ -1,4 +1,5 @@
 const errorMessage = document.getElementById('error-message');
+const errorWrapper = document.querySelector('.error-wrapper');
 const smilesInput = document.getElementById('smiles-input');
 const smilesForm = document.getElementById('single-smiles-form');
 
@@ -18,6 +19,7 @@ function displayServerError(err) {
 }
 
 export function clearErrorMessage() {
+    errorWrapper.classList.add('hidden');
     errorMessage.innerHTML = '';
 
     if (smilesForm.className.includes('has-danger')) {
@@ -27,9 +29,10 @@ export function clearErrorMessage() {
 }
 
 export function displayError(err) {
-    if (err instanceof Response) { 
-        displayServerError(err) 
+    errorWrapper.classList.remove('hidden');
+    if (err instanceof Response) {
+        displayServerError(err);
     } else {
-        displayClientError(err)
-    } 
+        displayClientError(err);
+    }
 }

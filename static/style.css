@@ -1,3 +1,5 @@
+/* GENERAL */
+
 body {
     padding: 1.5em;
     display: flex;
@@ -6,9 +8,28 @@ body {
     align-items: center;
 }
 
-.hidden {
-    display: none;
+#content {
+    overflow: visible;  
 }
+
+#title {
+    margin-bottom: 1em;
+}
+
+#forms-wrapper {
+    display: grid;
+    grid-template-columns: 1.25fr 1.25fr 1fr;
+    grid-gap: 0.5em 0.5em;
+    grid-template-areas: 
+        "search search options"
+        "molecule molecule options"
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* MOLECULES PANEL */
 
 .molecule-wrapper {
     grid-area: molecule;
@@ -31,6 +52,8 @@ body {
     grid-area: search;
 }
 
+/* OPTIONS PANEL */
+
 .options-wrapper {
     grid-area: options;
     padding: 1em;
@@ -38,17 +61,17 @@ body {
     border-radius: 5px;
 }
 
-.options-wrapper i {
-    float: right;
-}
-
-.options-header-wrapper h5 {
-    margin-bottom: 0;
-    margin-left: 0.2em;
+.options-wrapper .options-icons {
+    display: flex;
+    justify-content: space-between;
 }
 
 .options-wrapper small {
     margin-bottom: 0.3em;
+}
+
+.options-dropdown {
+    cursor: pointer;
 }
 
 .option-item {
@@ -66,6 +89,20 @@ body {
     width: 4em;
     margin-bottom: 1em;
 }
+
+#search-options {
+    overflow: hidden;
+    margin-top: 0;
+    transition: all 0.15s ease-out;
+}
+
+#search-options.search-options-open {
+    margin-top: 0.5em;
+    max-height: 1000px;
+    transition: all 0.25s ease-in;
+}
+
+/* SMILES FORM */
 
 .smiles-form {
     display: flex;
@@ -92,46 +129,25 @@ body {
     color: #e74c3c;
 }
 
-#content {
-    overflow: visible;  
-}
-
-#title {
-    margin-bottom: 1em;
-}
-
-#forms-wrapper {
-    display: grid;
-    grid-template-columns: 1.25fr 1.25fr 1fr;
-    grid-gap: 0.5em 0.5em;
-    grid-template-areas: 
-        "search search options"
-        "molecule molecule options"
-}
+/* MEDIA QUERIES */
 
 @media only screen and (min-width: 900px) {
-    /* .search-wrapper {
-        width: 70%;
+    .options-dropdown {
+        visibility: hidden;
     }
-    .options-wrapper {
-        width: 30%;
-    } */
     #content {
         width: 70%;
     }
   }
 
 @media only screen and (max-width: 900px) {
-    .search-wrapper {
-        width: 100%;
-    }
-    .options-wrapper {
-        width: 100%;
-    }
     #forms-wrapper {
         grid-template-areas: 
             "search search search"
             "options options options"
             "molecule molecule molecule"
+    }
+    #search-options {
+        max-height: 0;
     }
   }

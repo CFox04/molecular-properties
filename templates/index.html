@@ -46,12 +46,16 @@
                         </button>
                     </form>
                 </div>
-                <div class="error-wrapper">
+                <div class="error-wrapper hidden">
                     <small id="error-message"></small>
                 </div>
             </div>
             <div class="options-wrapper">
-                <i class="ni ni-settings-gear-65"></i>
+                <div class="options-icons">
+                    <i id="options-dropdown-open" class="options-dropdown ni ni-bold-down"></i>
+                    <i id="options-dropdown-close" class="hidden options-dropdown ni ni-bold-up"></i>
+                    <i class="ni ni-settings-gear-65"></i>
+                </div>
                 <form id="search-options">
                     <div class="option-item option-item-number">
                         <label for="precision">Float Precision</label>
