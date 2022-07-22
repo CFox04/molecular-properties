@@ -1,6 +1,6 @@
 from typing import OrderedDict
 from rdkit.Chem import MolFromSmiles, Descriptors, Draw, Crippen, Lipinski, QED
-from esol_calculator import calc_ap, calc_esol, calc_esol_descriptors, calc_esol_orig
+from esol_calculator import calc_ap, calc_esol
 
 MOLECULE_PROPERTIES = OrderedDict({
     'Number of Radical Electrons': Descriptors.NumValenceElectrons,
@@ -11,7 +11,6 @@ MOLECULE_PROPERTIES = OrderedDict({
     'LogP': Crippen.MolLogP,
     'Aromatic Proportion': calc_ap,
     'Number of Rotatable Bonds': Lipinski.NumRotatableBonds,
-    'Water Solubility (ESOL Original Paper)': calc_esol_orig,
     'Water Solubility (ESOL)': calc_esol,
     'Polar Surface Area': lambda mol: QED.properties(mol).PSA,
 })

@@ -1,5 +1,5 @@
 from rdkit import Chem
-from rdkit.Chem import Descriptors, Crippen, Lipinski, QED
+from rdkit.Chem import Descriptors, Crippen, Lipinski
 from collections import namedtuple
 
 AROMATIC_QUERY = Chem.MolFromSmarts("a")
@@ -25,20 +25,6 @@ def calc_esol_descriptors(mol):
     rotors = Lipinski.NumRotatableBonds(mol)
     ap = calc_ap(mol)
     return Descriptor(mw=mw, logp=logp, rotors=rotors, ap=ap)
-
-def calc_esol_orig(mol):
-    """
-    Original parameters from the Delaney paper, just here for comparison
-    :param mol: input molecule
-    :return: predicted solubility
-    """
-    # just here as a reference don't use this!
-    intercept = 0.16
-    coef = {"logp": -0.63, "mw": -0.0062, "rotors": 0.066, "ap": -0.74}
-    desc = calc_esol_descriptors(mol)
-    esol = intercept + coef["logp"] * desc.logp + coef["mw"] * desc.mw + coef["rotors"] * desc.rotors \
-            + coef["ap"] * desc.ap
-    return esol
 
 def calc_esol(mol):
     """
